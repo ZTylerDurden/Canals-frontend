@@ -46,7 +46,7 @@ doLogin() {
         // clear the error message
         this.loginErrorMessage = "";
 
-        // redirect to /phones
+        // redirect to /canals
         this.myRouter.navigate(['/canals']);
     })
     .catch((err) => {

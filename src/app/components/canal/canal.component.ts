@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { CanalService } from "../../services/canal.service";
+
+
 @Component({
   selector: 'app-canal',
   templateUrl: './canal.component.html',
@@ -12,6 +14,11 @@ export class CanalComponent implements OnInit {
   canalListError: string;
   canals: any;
   currentUser: string;
+
+  //Google Maps API, leave deactivated for now
+  // title: string = 'Google Map Yayy';
+  // lat: number = 51.678418;
+  // lng: number = 7.809007;
 
   constructor(
     private myAuthService: AuthService,

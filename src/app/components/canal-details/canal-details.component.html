@@ -1,0 +1,33 @@
+<strong>{{ canal.canalName }}</strong>
+<p>{{ canal.lat }}</p>
+<p>{{ canal.description }}</p>
+
+<img [src]="baseUrl+canal.image" alt="">
+
+
+<div>
+  <a [routerLink]="['/canals']">Take me back to list</a>
+</div>
+
+<!-- update canal area -->
+<div *ngIf="canal.owner === currentUser._id">  
+<form (ngSubmit)="doTheUpdate(canal._id, myForm)" #myForm="ngForm" >
+  <label for="canal-name-input"> Canal Name </label>
+  <input id="canal-name-input" type="text"  [(ngModel)]="canal.canalName" name="canalName" value="{{ canal.canalName }}">
+  <br>
+  <label for="lat-input"> Latitude </label>
+  <input id="lat-input" type="text"  [(ngModel)]="canal.lat" name="lat" value="{{ canal.lat }}">
+  <br>
+  <label for="lng-input"> Longitude </label>
+  <input id="lng-input" type="text"  [(ngModel)]="canal.lng" name="lng" value="{{ canal.lng }}">
+  <br>
+  <label for="description-textarea"> Description </label>
+  <textarea id="description-textarea" type="text" rows="10" cols="30" [(ngModel)]="canal.description" name="description" value="{{ canal.description }}"></textarea>
+  <br>
+  <label for="fishTypes-input"> Fish Species </label>
+    <input id="fishTypes-input" type="number" [(ngModel)]="canal.fishTypes" name="fishTypes">
+    <br>
+  <button type="submit">Save updates</button>
+  <button *ngIf="canal._id" (click)="deleteThisCanal()">DELETE</button>
+</form>
+</div>
