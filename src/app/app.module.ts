@@ -20,6 +20,7 @@ import { NewCanalComponent } from './components/new-canal/new-canal.component';
 // image stuff
 import { FileUploadModule } from "ng2-file-upload";
 import { CanalDetailsComponent } from './components/canal-details/canal-details.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 
 
@@ -31,6 +32,7 @@ import { CanalDetailsComponent } from './components/canal-details/canal-details.
     CanalComponent,
     NewCanalComponent,
     CanalDetailsComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,16 @@
 
 <img [src]="baseUrl+canal.image" alt="">
 
+<!-- reviews: -->
+
+<div *ngFor = "let oneReview of canal.reviews" >
+  Made by:<p>{{ oneReview.author }} - <span>{{ oneReview.content }}</span></p>
+  
+  <p>Rating: {{ oneReview.stars }} stars</p>
+</div>
+
+
+
 
 <div>
   <a [routerLink]="['/canals']">Take me back to list</a>
@@ -31,3 +41,31 @@
   <button *ngIf="canal._id" (click)="deleteThisCanal()">DELETE</button>
 </form>
 </div>
+<hr>
+<!-- canal details -->
+
+<div *ngIf="canal.owner !== currentUser._id">
+
+  <p>Add the review below:</p>
+  <form (ngSubmit)="addTheReview(canal._id, reviewData)" >
+      <label for="review-content-input"> Content </label>
+      <input id="review-content-input" type="text"  [(ngModel)]="reviewData.content" name="content">
+      <br>
+      <label for="review-stars-input"> Content </label>
+      <input id="review-stars-input" type="number"  [(ngModel)]="reviewData.stars" name="content">
+      <br>
+      <button type="submit">Submit the review</button>
+  </form>
+</div>
+
+<hr>
+
+
+
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker [latitude]="canal.lat" [longitude]="canal.lng"></agm-marker>
+  </agm-map>
+
+
+  

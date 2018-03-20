@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { CanalService } from "../../services/canal.service";
+import { environment } from "../../../environments/environment";
 
 
 @Component({
@@ -10,15 +11,17 @@ import { CanalService } from "../../services/canal.service";
   styleUrls: ['./canal.component.css']
 })
 export class CanalComponent implements OnInit {
+  baseUrl = environment.apiBase;
+
   logoutError: string;
   canalListError: string;
   canals: any;
   currentUser: string;
 
-  //Google Maps API, leave deactivated for now
-  // title: string = 'Google Map Yayy';
-  // lat: number = 51.678418;
-  // lng: number = 7.809007;
+  title: string = 'Google Map Yayy';
+  zoom: number = 10
+  lat: number = 25.7215
+  lng: number = -80.2684
 
   constructor(
     private myAuthService: AuthService,
@@ -49,7 +52,7 @@ export class CanalComponent implements OnInit {
     .subscribe(allTheCanals => {
       // console.log("allTheCanals: ", allTheCanals)
         this.canals = allTheCanals;
-        console.log("canals", this.canals)
+        console.log("canals are here:m ===========", this.canals)
       },
       () => {
         this.canalListError = "Sorry, no canals.";

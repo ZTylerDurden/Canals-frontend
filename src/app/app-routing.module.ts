@@ -5,10 +5,15 @@ import { LoginComponent } from "./components/login/login.component";
 import { CanalComponent } from "./components/canal/canal.component";
 import { NewCanalComponent } from './components/new-canal/new-canal.component';
 import { CanalDetailsComponent } from './components/canal-details/canal-details.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 const routes: Routes = [{
     path: "signup",
     component: SignupComponent
+},
+{
+    path: "",
+    component: WelcomePageComponent
 },
 {
     path: "login",

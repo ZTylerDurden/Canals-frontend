@@ -40,4 +40,13 @@ export class CanalService {
         .toPromise()
   }
 
+  // reviews:
+  addReview(canalId,dataToSend){
+    return this.myHttp.post(`${environment.apiBase}/api/canals/${canalId}/reviews`,
+     dataToSend, 
+     {withCredentials: true})
+     .toPromise()
+     .then(res => res.json())
+  }
+
 }

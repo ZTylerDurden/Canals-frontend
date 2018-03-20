@@ -19,6 +19,17 @@ export class CanalDetailsComponent implements OnInit {
   updatedDescription: String;
   updatedFishTypes: Number;
   updatedCanal: Object = {};
+  savingErr: string;
+  // review things:
+  reviewData = {
+    content: "",
+    stars: ""
+  }
+
+  zoom: number = 10
+  lat: number = 25.7215
+  lng: number = -80.2684
+
 
   constructor(
     private myCanalService: CanalService,
@@ -50,7 +61,7 @@ export class CanalDetailsComponent implements OnInit {
     this.myCanalService.getId(id)
       .then( res => {
           this.canal = res;
-          console.log("canal owner id is: ", this.canal.owner)
+          console.log("canal reviews are: ", this.canal.reviews)
       } )
       .catch()
   }
@@ -96,6 +107,23 @@ export class CanalDetailsComponent implements OnInit {
       .catch( err => {
         console.log("Error in deleting:", err)
       })
+  }
+
+  addTheReview(canalId, dataFromForm){
+    this.myCanalService.addReview(canalId, dataFromForm)
+      .then(res =>  {
+        console.log("res from add the review", res)
+        this.reviewData = {
+          content: "", 
+          stars: ""
+        }
+        this.savingErr = "";
+        this.myRouter.navigate(['/canals'])
+      })
+      .catch(err => {
+        console.log(err);
+        this.myRouter.navigate(['/']);
+      });
   }
 
 }
