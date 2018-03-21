@@ -1,18 +1,34 @@
-<h3> Log In </h3>
+<!-- <h3> Log In </h3> -->
 
 <p *ngIf="loginErrorMessage" class="error">
   {{ loginErrorMessage }}
 </p>
 
-<form (ngSubmit)="doLogin()">
+<!-- <form (ngSubmit)="doLogin()">
   <label for="login-username-input"> Username </label>
   <input id="login-username-input" type="text" placeholder="blah" [(ngModel)]="loginInfo.username" name="loginUsername">
   <br>
 
-  <label for="login-pass-input"> Password </label>
+  <label for="login-pass-input"></label>
   <input id="login-pass-input" type="password" placeholder="*****" [(ngModel)]="loginInfo.password" name="loginPassword">
   <br>
 
   <button> Log In </button>
 </form>
-<p>Don't have account? <a [routerLink]="['/signup']">Sign Up</a></p>
+<p>Don't have account? <a [routerLink]="['/signup']">Sign Up</a></p> -->
+
+<body>
+    <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" (ngSubmit)="doLogin()">
+                <h2 class="text-center"><strong>Login.</strong></h2>
+                <div class="form-group"><label for="login-username-input"></label><input id="login-username-input" class="form-control" [(ngModel)]="loginInfo.username" type="text" name="loginUsername" placeholder="Username"></div>
+                
+                <div class="form-group"><label for="login-pass-input"></label><input id="login-pass-input" class="form-control" [(ngModel)]="loginInfo.password" type="password" name="loginPassword" placeholder="Password"></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div><a [routerLink]="['/signup']" class="already">Don't have an account?  Sign up Here!</a></form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</body>

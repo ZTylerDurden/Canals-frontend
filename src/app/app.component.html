@@ -1,6 +1,5 @@
-<body>
-
-            <nav class="navbar navbar-dark navbar-expand-md bg-success">
+<body>    
+    <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #14534e;">
                     <a [routerLink]="['/']" class="navbar-brand mr-0"><img src="../../assets/images/EyeCastLogo.png" style="width:120px"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar6">
                         <span class="navbar-toggler-icon"></span>
@@ -16,6 +15,9 @@
                         </ul>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
+                                <a class="nav-link" [routerLink]="['/add-canal']">Add Canal</a>
+                            </li>
+                            <li class="nav-item active">
                                     <a class="nav-link" href="http://myfwc.com/license/recreational/">Get a Fishing License!</a> 
                             <li class="nav-item active">
                                 <a class="nav-link" [routerLink]="" (click)="logMeOutPls()">Logout</a>
@@ -26,8 +28,6 @@
                         </ul>
                     </div>
                 </nav>
-            
-
 </body>
 
 <router-outlet></router-outlet>

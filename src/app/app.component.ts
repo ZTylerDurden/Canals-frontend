@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService } from "./services/auth.service";
 import { CanalService } from "./services/canal.service";
@@ -9,7 +9,7 @@ import { CanalService } from "./services/canal.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+// isLoggedOut: boolean = true;
   logoutError: string;
 
   constructor(
@@ -18,10 +18,12 @@ export class AppComponent {
     private myCanalService: CanalService
   ) {}
   
+  
   logMeOutPls() {
     this.myAuthService
       .logout()
       .then(() => {
+        // this.isLoggedOut = false;
         this.myRouter.navigate(["/"]);
       })
       .catch(() => {

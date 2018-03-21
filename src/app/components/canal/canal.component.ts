@@ -18,6 +18,7 @@ export class CanalComponent implements OnInit {
   canals: any;
   currentUser: string;
 
+
   title: string = 'Google Map Yayy';
   zoom: number = 10
   lat: number = 25.7215
