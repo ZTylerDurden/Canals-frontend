@@ -1,8 +1,44 @@
 #fishTypes-input {
-    width: 2em;
+    width: 3em;
   }
 
   agm-map {
     height: 600px;
     width: 400px;
   }
+
+  .canal-sizing {
+    height: 536px;
+    width: 922px;
+}
+
+.col-lg-4 {
+    background-color: #f1f1f1;
+    font-family: Raleway;
+    font-size: xx-large;
+    color: #474747;
+}
+ul {
+    list-style-type: none;
+    margin-top: 100px;
+  }
+
+.margin-desc {
+    margin-top: 40px;
+    margin-left: 270px;
+    font-family: Raleway;
+    font-size: large;
+    color: #838282;
+}
+
+.angler-quote {
+    margin-top: 40px;
+    margin-left: 80px;
+    font-family: Raleway;
+    font-size: small;
+    font-weight: bold;
+    color: #474747;
+
+}
+
+/* This is the comments CSS Styling ONLY */

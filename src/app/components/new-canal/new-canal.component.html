@@ -1,7 +1,7 @@
 <h3>Add a new canal spot</h3>
-  <p *ngIf="saveError" class="error">
+  <!-- <p *ngIf="saveError" class="error">
     {{ savingErr }}
-  </p>
+  </p> -->
 
   <form (ngSubmit)="saveNewCanal()">
 
@@ -18,7 +18,7 @@
     <br>
 
     <label for="description-textarea"> Description </label>
-    <textarea id="description-textarea" type="text" rows="10" cols="30" placeholder="Description" [(ngModel)]="canalData.description" name="description"></textarea>
+    <textarea id="description-textarea" type="text" rows="10" cols="90" placeholder="Description" [(ngModel)]="canalData.description" name="description"></textarea>
     <br>
 
     <label for="fishTypes-input"> Fish Species </label>

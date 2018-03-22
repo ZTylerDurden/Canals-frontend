@@ -1,8 +1,33 @@
-<strong>{{ canal.canalName }}</strong>
-<p>{{ canal.lat }}</p>
-<p>{{ canal.description }}</p>
 
-<img [src]="baseUrl+canal.image" alt="">
+<body>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <ul>
+              <li><strong>{{ canal.canalName }}</strong></li><br>
+              <li>Latitude: {{ canal.lat }}</li>
+              <li>Longitude: {{ canal.lng }}</li>
+              <li>Fish Species: {{ canal.fishTypes }}</li><br>
+              <p><a [routerLink]="['/canals']" class="btn btn-info btn-xs" role="button">Take me back</a>
+        </ul>
+      </div>
+      <div class="col-lg-8">
+      <img [src]="baseUrl+canal.image" alt="" class="canal-sizing">
+      </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+          <p class="margin-desc"> "{{canal.description}}"</p>
+        </div>
+        <div class="col-md-4">
+          <p class="angler-quote">InsertNameHere, Angler</p>
+        </div>
+    </div>
+  </div>
+
+<!-- <img [src]="baseUrl+canal.image" alt=""> -->
 
 <!-- reviews: -->
 
@@ -12,12 +37,6 @@
   <p>Rating: {{ oneReview.stars }} stars</p>
 </div>
 
-
-
-
-<div>
-  <a [routerLink]="['/canals']">Take me back to list</a>
-</div>
 
 <!-- update canal area -->
 <div *ngIf="canal.owner === currentUser._id">  
@@ -51,9 +70,6 @@
       <label for="review-content-input"> Content </label>
       <input id="review-content-input" type="text"  [(ngModel)]="reviewData.content" name="content">
       <br>
-      <label for="review-stars-input"> Content </label>
-      <input id="review-stars-input" type="number"  [(ngModel)]="reviewData.stars" name="content">
-      <br>
       <button type="submit">Submit the review</button>
   </form>
 </div>
@@ -63,9 +79,48 @@
 
 
 
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+<!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker [latitude]="canal.lat" [longitude]="canal.lng"></agm-marker>
-  </agm-map>
+  </agm-map> -->
 
+<!-- Star reviews for another day
+<label for="review-stars-input"> Content </label>
+      <input id="review-stars-input" type="number"  [(ngModel)]="reviewData.stars" name="content">
+      <br> -->
 
-  
+      <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="page-header">Comments</h2>
+                <section class="comment-list">
+                  <!-- First Comment -->
+                  <article class="row">
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <figure class="thumbnail">
+                        <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                        <figcaption class="text-center">username</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-md-10 col-sm-10">
+                      <div class="panel panel-default arrow left">
+                        <div class="panel-body">
+                          <header class="text-left">
+                            <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
+                            <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                          </header>
+                          <div class="comment-post">
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                          </div>
+                          <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+            </div>
+          </div>
+        </div>
+
+    </body>
