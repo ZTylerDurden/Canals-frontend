@@ -7,7 +7,7 @@
               <li><strong>{{ canal.canalName }}</strong></li><br>
               <li>Latitude: {{ canal.lat }}</li>
               <li>Longitude: {{ canal.lng }}</li>
-              <li>Fish Species: {{ canal.fishTypes }}</li><br>
+              <li>Fish Variety: {{ canal.fishTypes }}</li><br>
               <p><a [routerLink]="['/canals']" class="btn btn-info btn-xs" role="button">Take me back</a>
         </ul>
       </div>
@@ -22,7 +22,7 @@
           <p class="margin-desc"> "{{canal.description}}"</p>
         </div>
         <div class="col-md-4">
-          <p class="angler-quote">InsertNameHere, Angler</p>
+          <p class="angler-quote">{{ canal.owner }}, Angler</p>
         </div>
     </div>
   </div>
@@ -31,11 +31,11 @@
 
 <!-- reviews: -->
 
-<div *ngFor = "let oneReview of canal.reviews" >
+<!-- <div *ngFor = "let oneReview of canal.reviews" >
   Made by:<p>{{ oneReview.author }} - <span>{{ oneReview.content }}</span></p>
   
   <p>Rating: {{ oneReview.stars }} stars</p>
-</div>
+</div> -->
 
 
 <!-- update canal area -->
@@ -63,64 +63,60 @@
 <hr>
 <!-- canal details -->
 
+<div class="container-fluid">
 <div *ngIf="canal.owner !== currentUser._id">
 
-  <p>Add the review below:</p>
   <form (ngSubmit)="addTheReview(canal._id, reviewData)" >
-      <label for="review-content-input"> Content </label>
-      <input id="review-content-input" type="text"  [(ngModel)]="reviewData.content" name="content">
+      <label for="review-content-input"></label>
+      <textarea id="review-content-textarea" type="text" rows="8" cols="90"  [(ngModel)]="reviewData.content" name="content"></textarea>
       <br>
-      <button type="submit">Submit the review</button>
+      <button class="btn btn-info btn-xs" role="button" type="submit">Submit Comment!</button>
   </form>
+</div>
 </div>
 
 <hr>
 
-
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="page-header">Comments</h2>
+          <section class="comment-list">
+            <!-- First Comment -->
+            <article class="row">
+              <div class="col-md-2 col-sm-2 hidden-xs">
+              </div>
+              <div class="col-md-10 col-sm-10">
+                <div *ngFor = "let oneReview of canal.reviews" class="panel panel-default arrow left">
+                  <div class="panel-body" >
+                    <header class="text-left">
+                      <div class ="comment-user" ><i class="fa fa-user"></i> {{oneReview.author}}</div>
+                    </header>
+                    <div class="comment-post">
+                      <p>
+                        {{oneReview.content}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+      </div>
+    </div>
+  </div>
 
 
 <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker [latitude]="canal.lat" [longitude]="canal.lng"></agm-marker>
   </agm-map> -->
 
-<!-- Star reviews for another day
+<!-- Star reviews for another day (free form section)
 <label for="review-stars-input"> Content </label>
       <input id="review-stars-input" type="number"  [(ngModel)]="reviewData.stars" name="content">
       <br> -->
 
-      <div class="container">
-          <div class="row">
-            <div class="col-md-8">
-              <h2 class="page-header">Comments</h2>
-                <section class="comment-list">
-                  <!-- First Comment -->
-                  <article class="row">
-                    <div class="col-md-2 col-sm-2 hidden-xs">
-                      <figure class="thumbnail">
-                        <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
-                        <figcaption class="text-center">username</figcaption>
-                      </figure>
-                    </div>
-                    <div class="col-md-10 col-sm-10">
-                      <div class="panel panel-default arrow left">
-                        <div class="panel-body">
-                          <header class="text-left">
-                            <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                            <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                          </header>
-                          <div class="comment-post">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                          </div>
-                          <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </section>
-            </div>
-          </div>
-        </div>
+<!-- Star reviews for another day (array section) -->
+
 
     </body>

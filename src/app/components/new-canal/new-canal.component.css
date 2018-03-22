@@ -1,3 +1,9 @@
 #fishTypes-input {
     width: 3em;
   }
+  .row {
+    background-color: #f1f7fc;
+    font-family: Raleway;
+    font-size: small;
+    color: #474747;
+  }

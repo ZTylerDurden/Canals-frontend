@@ -37,7 +37,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 text-center">
-          <h3> Happy Fishing {{ currentUser.username }}! </h3>
+          <h3><strong> Happy Fishing {{ currentUser.username }}! </strong></h3>
         </div>
     </div>
   </div>
@@ -49,8 +49,8 @@
               <img [src]="baseUrl + canal.image" alt="">
                 <div class="caption">
                   <h4>{{ canal.canalName }}</h4>
-                  <h5>Observed Fish Species: {{ canal.fishTypes }}</h5>
-                  <p><a [routerLink]="['/canals', canal._id]" class="btn btn-info btn-xs" role="button">View</a>
+                  <h5>Observed Fish Variety: {{ canal.fishTypes }}</h5>
+                  <p><a [routerLink]="['/canals', canal._id]" class="btn btn-info btn-xs" role="button">View</a></p>
               </div>
             </div>
           </div>

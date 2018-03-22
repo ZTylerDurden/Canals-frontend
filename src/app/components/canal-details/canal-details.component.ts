@@ -118,7 +118,8 @@ export class CanalDetailsComponent implements OnInit {
           stars: ""
         }
         this.savingErr = "";
-        this.myRouter.navigate(['/canals'])
+        // this.myRouter.navigate(['/canals'])
+        this.getCanalDetails(canalId)
       })
       .catch(err => {
         console.log(err);

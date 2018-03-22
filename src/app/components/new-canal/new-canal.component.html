@@ -1,33 +1,48 @@
-<h3>Add a new canal spot</h3>
-  <!-- <p *ngIf="saveError" class="error">
-    {{ savingErr }}
-  </p> -->
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+          <h2><strong>Add a new canal location</strong></h2>
+          <!-- <p *ngIf="saveError" class="error">
+            {{ savingErr }}
+          </p> -->
+      </div>
+    </div>
+  </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-1">
 
   <form (ngSubmit)="saveNewCanal()">
 
     <label for="canal-name-input"> Canal Name </label>
-    <input id="canal-name-input" type="text" placeholder="Canal name" [(ngModel)]="canalData.canalName" name="canalName" required>
+    <input id="canal-name-input" type="text" placeholder="" [(ngModel)]="canalData.canalName" name="canalName" required>
     <br>
   
     <label for="lat-input"> Latitude </label>
-    <input id="lat-input" type="text" placeholder="Latitude" [(ngModel)]="canalData.lat" name="lat">
+    <input id="lat-input" type="text" placeholder="" [(ngModel)]="canalData.lat" name="lat">
     <br>
   
     <label for="lng-input"> Longitude </label>
-    <input id="lng-input" type="text" placeholder="Longitude" [(ngModel)]="canalData.lng" name="lng">
+    <input id="lng-input" type="text" placeholder="" [(ngModel)]="canalData.lng" name="lng">
     <br>
 
     <label for="description-textarea"> Description </label>
-    <textarea id="description-textarea" type="text" rows="10" cols="90" placeholder="Description" [(ngModel)]="canalData.description" name="description"></textarea>
+    <textarea id="description-textarea" type="text" rows="10" cols="90" placeholder="" [(ngModel)]="canalData.description" name="description"></textarea>
     <br>
 
-    <label for="fishTypes-input"> Fish Species </label>
+    <label for="fishTypes-input"> Fish Variety</label>
     <input id="fishTypes-input" type="number" [(ngModel)]="canalData.fishTypes" name="fishTypes">
     <br>
   
-    <label for="canal-image-input"> Canal Image (optional)</label>
+    <label for="canal-image-input"> Upload Image</label>
     <input id="canal-image-input" type="file" name="canalImage" ng2FileSelect [uploader]="myCoolUploader">
     <br>
   
-    <button> Save Canal </button>
+    <button > Save Canal </button>
   </form>
+
+</div>
+</div>
+</div>
+</body>
